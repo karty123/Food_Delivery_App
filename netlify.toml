@@ -1,0 +1,25 @@
+# Netlify Configuration for Frontend
+
+[build]
+  # Base directory for the build
+  base = "client"
+  # Build command
+  command = "npm install && npm run build"
+  # Directory to publish (where the built files are)
+  publish = "dist"
+
+# Redirect rules for client-side routing
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+# Headers for security and CORS
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-XSS-Protection = "1; mode=block"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+

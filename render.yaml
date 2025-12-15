@@ -1,0 +1,21 @@
+# Render Configuration for Backend API
+
+services:
+  - type: web
+    name: food-delivery-api
+    env: node
+    # Root directory for the service
+    rootDir: server
+    # Build command
+    buildCommand: npm install
+    # Start command
+    startCommand: npm start
+    # Environment variables (set these in Render dashboard instead)
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 5000
+      # IMPORTANT: Set ALLOWED_ORIGINS in Render dashboard with your Netlify URL
+      # Example: ALLOWED_ORIGINS=https://your-app.netlify.app
+
