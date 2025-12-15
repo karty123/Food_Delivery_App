@@ -320,6 +320,20 @@ const requireAuth = (req, res, next) => {
 
 // Routes
 
+// Root route - health check
+app.get('/', (req, res) => {
+  res.json({ 
+    message: 'Food Delivery API is running!',
+    version: '1.0.0',
+    endpoints: {
+      restaurants: '/api/restaurants',
+      menu: '/api/menu',
+      orders: '/api/orders',
+      auth: '/api/auth/login, /api/auth/register'
+    }
+  })
+})
+
 // Auth Routes
 app.post('/api/auth/register', (req, res) => {
   const { name, email, password, phone } = req.body
